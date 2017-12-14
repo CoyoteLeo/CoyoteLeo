@@ -1,1 +1,1 @@
-web: gunicorn CoyoteLeo.wsgi --log-file -
+web: gunicorn CoyoteLeo.wsgi
