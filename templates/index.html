@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>About Leo Lin</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]><script src="/static/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="{% static "css/ie9.css" %} "/><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="{% static "css/ie8.css" %}"/><![endif]-->
+</head>
+<body>
+
+<!-- Sidebar -->
+<section id="sidebar">
+    <div class="inner">
+        <nav>
+            <ul>
+                <li><a href="#intro">About me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#ability">Ability</a></li>
+                <li><a href="#work">Works</a></li>
+                <li><a href="#contact">Get in touch</a></li>
+                <li><a href="">Language</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- Wrapper -->
+<div id="mainpage">
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up"
+             style="background-image: url('{% static "images/intro.svg" %}');">
+        <div class="inner">
+            <h1>Leo Lin</h1>
+            <p>A freshman of National Taiwan University of Science and Technology. Learning Computer Science.</p>
+            <ul class="actions">
+                <li><a href="#experience" class="button scrolly">Experience</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="wrapper rowmode spotlights">
+        {% for experience in experiences %}
+            <section>
+                <div class="content">
+                    <div class="inner">
+                        <h2>{{ experience.title }}</h2>
+                        <p>{{ experience.description }}</p>
+                        <ul class="actions">
+                            <li><a class="solidbutton">{{ experience.time }}</a></li>
+                            <li><a href="{{ experience.ps }}" class="button">more</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </section>
+
+    <!-- Ability -->
+    <section id="ability" class="wrapper gridmode spotlights">
+        <div class="inner">
+            <h2>Experience</h2>
+            <p>What have I done before?</p>
+            <div class="features">
+                {% for ability in abilities %}
+                    <section>
+                        <span class="icon major"></span>
+                        <h3>{{ ability.title }}</h3>
+                        <p>{{ ability.description }}</p>
+                    </section>
+                {% endfor %}
+            </div>
+            <ul class="actions">
+                <li><a href="#work" class="button scrolly">Works</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="wrapper rowmode spotlights">
+        {% for work in works %}
+            <section>
+                <a href="{{ work.ps }}" class="image"><img src="{{ work.image.url }}" alt=""
+                                                           data-position="center center"/></a>
+                <div class="content">
+                    <div class="inner">
+                        <h2>{{ work.title }}</h2>
+                        <p>{{ work.description }}</p>
+                        <ul class="actions">
+                            <li><a href="{{ work.ps }}" class="button">more</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="wrapper style1 fade-up">
+        <div class="inner">
+            <h2>Get in touch</h2>
+            <p>If you have any advice or want to contact me, please send me an email. I would reply as soon as
+                possible.</p>
+            <div class="split style1">
+                <section>
+                    <form method="post" action="">
+                        <div class="field half first">
+                            <label for="name">Name</label>
+                            {{ reply.name }}
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            {{ reply.email }}
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            {{ reply.message }}
+                        </div>
+                        <input type="submit" value="Send Message">
+                    </form>
+                </section>
+                <section>
+                    <ul class="contact">
+                        <li>
+                            <h3>Email</h3>
+                            <a>karta09104@gmail.com</a>
+                        </li>
+                        <li>
+                            <h3>Phone</h3>
+                            <span>886XXX-XXX-XXX</span>
+                        </li>
+                        <li>
+                            <h3>Social</h3>
+                            <ul class="icons">
+                                <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
+                                <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/jquery.scrollex.min.js" %}"></script>
+<script src="{% static "js/jquery.scrolly.min.js" %}"></script>
+<script src="{% static "js/skel.min.js" %}"></script>
+<script src="{% static "js/util.js" %}"></script>
+<!--[if lte IE 8]><script src="{% static "js/ie/respond.min.js" %}"></script><![endif]-->
+<script src="{% static "js/main.js" %}"></script>
+</body>
+</html>
