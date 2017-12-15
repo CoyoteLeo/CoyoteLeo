@@ -84,8 +84,11 @@
     <section id="work" class="wrapper rowmode spotlights">
         {% for work in works %}
             <section>
-                <a href="{{ work.ps }}" class="image"><img src="{{ work.image.url }}" alt=""
-                                                           data-position="center center"/></a>
+                <a href="{{ work.ps }}" class="image">
+                    {% if work.image.url %}
+                        <img src="{{ work.image.url }}" alt="" data-position="center center"/>
+                    {% endif %}
+                </a>
                 <div class="content">
                     <div class="inner">
                         <h2>{{ work.title }}</h2>
